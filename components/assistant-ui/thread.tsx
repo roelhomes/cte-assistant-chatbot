@@ -73,40 +73,43 @@ const ThreadWelcome: FC = () => {
     <ThreadPrimitive.Empty>
       <div className="flex w-full max-w-[var(--thread-max-width)] flex-grow flex-col">
         <div className="flex w-full flex-grow flex-col items-center justify-center">
-          <p className="mt-4 font-medium">How can I help you today?</p>
+          <p className="mt-4 font-medium text-balance text-center">
+            Soy tu asistente especializado en el Código Técnico de la
+            Edificación (CTE). ¿Cómo puedo ayudarte?
+          </p>
         </div>
-        <ThreadWelcomeSuggestions />
+        {/* <ThreadWelcomeSuggestions /> */}
       </div>
     </ThreadPrimitive.Empty>
   )
 }
 
-const ThreadWelcomeSuggestions: FC = () => {
-  return (
-    <div className="mt-3 flex w-full items-stretch justify-center gap-4">
-      <ThreadPrimitive.Suggestion
-        className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
-        prompt="What is the weather in Tokyo?"
-        method="replace"
-        autoSend
-      >
-        <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
-          What is the weather in Tokyo?
-        </span>
-      </ThreadPrimitive.Suggestion>
-      <ThreadPrimitive.Suggestion
-        className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
-        prompt="What is assistant-ui?"
-        method="replace"
-        autoSend
-      >
-        <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
-          What is assistant-ui?
-        </span>
-      </ThreadPrimitive.Suggestion>
-    </div>
-  )
-}
+// const ThreadWelcomeSuggestions: FC = () => {
+//   return (
+//     <div className="mt-3 flex w-full items-stretch justify-center gap-4">
+//       <ThreadPrimitive.Suggestion
+//         className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
+//         prompt="What is the weather in Tokyo?"
+//         method="replace"
+//         autoSend
+//       >
+//         <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
+//           What is the weather in Tokyo?
+//         </span>
+//       </ThreadPrimitive.Suggestion>
+//       <ThreadPrimitive.Suggestion
+//         className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
+//         prompt="What is assistant-ui?"
+//         method="replace"
+//         autoSend
+//       >
+//         <span className="line-clamp-2 text-ellipsis text-sm font-semibold">
+//           What is assistant-ui?
+//         </span>
+//       </ThreadPrimitive.Suggestion>
+//     </div>
+//   )
+// }
 
 const Composer: FC = () => {
   return (
@@ -114,7 +117,7 @@ const Composer: FC = () => {
       <ComposerPrimitive.Input
         rows={1}
         autoFocus
-        placeholder="Write a message..."
+        placeholder="Escribe un mensaje..."
         className="placeholder:text-muted-foreground max-h-40 flex-grow resize-none border-none bg-transparent px-2 py-4 text-sm outline-none focus:ring-0 disabled:cursor-not-allowed"
       />
       <ComposerAction />
@@ -128,7 +131,7 @@ const ComposerAction: FC = () => {
       <ThreadPrimitive.If running={false}>
         <ComposerPrimitive.Send asChild>
           <TooltipIconButton
-            tooltip="Send"
+            tooltip="Enviar"
             variant="default"
             className="my-2.5 size-8 p-2 transition-opacity ease-in"
           >
@@ -221,7 +224,7 @@ const AssistantActionBar: FC = () => {
       className="text-muted-foreground data-[floating]:bg-background col-start-3 row-start-2 -ml-1 flex gap-1 data-[floating]:absolute data-[floating]:rounded-md data-[floating]:border data-[floating]:p-1 data-[floating]:shadow-sm"
     >
       <ActionBarPrimitive.Copy asChild>
-        <TooltipIconButton tooltip="Copy">
+        <TooltipIconButton tooltip="Copiar">
           <MessagePrimitive.If copied>
             <CheckIcon />
           </MessagePrimitive.If>
@@ -230,11 +233,11 @@ const AssistantActionBar: FC = () => {
           </MessagePrimitive.If>
         </TooltipIconButton>
       </ActionBarPrimitive.Copy>
-      <ActionBarPrimitive.Reload asChild>
+      {/* <ActionBarPrimitive.Reload asChild>
         <TooltipIconButton tooltip="Refresh">
           <RefreshCwIcon />
         </TooltipIconButton>
-      </ActionBarPrimitive.Reload>
+      </ActionBarPrimitive.Reload> */}
     </ActionBarPrimitive.Root>
   )
 }
